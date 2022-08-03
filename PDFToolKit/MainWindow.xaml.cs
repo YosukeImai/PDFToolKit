@@ -26,9 +26,6 @@ namespace PDFToolKit
             InitializeComponent();
         }
 
-        private PdfDocument pdf;
-        private int quantity = 100;
-
         private void Window_Drop(object sender, DragEventArgs e)
         {
             try
@@ -60,6 +57,9 @@ namespace PDFToolKit
 
         private async void OutputPDF(string path,DirectoryInfo dis)
         {
+            PdfDocument pdf = null;
+            int quantity = 100;
+
             try
             {
                 var file = await Windows.Storage.StorageFile.GetFileFromPathAsync(path);
@@ -68,6 +68,7 @@ namespace PDFToolKit
             catch
             {
             }
+
 
             if (pdf == null)
             {
